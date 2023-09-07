@@ -1,6 +1,12 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+
+import Footer from "./Footer";
 
 const HookUseEffect = () => {
+  const urlGitHub =
+    "https://github.com/victormerseguel/hooks_react/blob/main/src/components/HookUseEffect.jsx";
+
   // 1 - useEffect sem dependências
   useEffect(() => {
     console.log("Fui renderizado");
@@ -54,13 +60,13 @@ const HookUseEffect = () => {
       <code>useEffect = {"(() => {escopo do hook}, [dependencias])"}</code>
       <h2>useEffect sem dependências</h2>
       <p>
-        Quando execudado sem argumentos de dependências, o useEffect é
-        renderizado a cada mudança no componente, mesmo que fora de seu escopo.
-        No exemplo a seguir, há uma chamada de console log dentro do escopo de
-        useEffect, sendo renderizada assim que a página é carregada. Há um
-        número que está fora do escopo do hook em questão, mas quando alterado,
-        provoca uma nova renderização do useEffect como pode ser vista no painel
-        de Console, no inspector do navegador.
+        Quando execudado sem argumentos de dependências, o useEffect é afetado a
+        cada nova renderização de um elemento no componente, mesmo que fora de
+        seu escopo. No exemplo a seguir, há uma chamada de console log dentro do
+        escopo de useEffect, sendo renderizada assim que a página é carregada.
+        Há um número que está fora do escopo do hook em questão, mas quando
+        alterado, provoca uma nova renderização do useEffect como pode ser vista
+        no painel de Console, no inspector do navegador.
       </p>
       <p>Neste caso, o uso de useEffect ficou da seguinte maneira:</p>
       <code> useEffect{'(() => {console.log("Fui renderizado")})'};</code>
@@ -139,6 +145,11 @@ const HookUseEffect = () => {
         useEffect, para impedir o efeito desta renderização quando o usuário
         estiver em outra página.
       </p>
+      <p>
+        Uma outra possibilidade é utilizar um outro hook chamado useRef, que não
+        renderiza a página a cada vez que é alterado. É possivel entender melhor
+        seu funcioanmento <Link to="/useref">clicando aqui</Link>
+      </p>
       <h2>Cleanup</h2>
       <p>
         A seguir, temos um contador automático que altera o estado se si mesmo a
@@ -173,6 +184,7 @@ const HookUseEffect = () => {
       </span>
       <span className="divider"></span>
       <p>Contador automátio com Cleanup: {cleanupCounter}</p>
+      <Footer url={urlGitHub} />
     </div>
   );
 };

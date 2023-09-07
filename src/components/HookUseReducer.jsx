@@ -1,6 +1,10 @@
 import { useReducer } from "react";
+import Footer from "./Footer";
 
 const HookUseReducer = () => {
+  const urlGitHub =
+    "https://github.com/victormerseguel/hooks_react/blob/main/src/components/HookUseReducer.jsx";
+
   //  1 - começando com o useReducer
   const [number, dispatchNumber] = useReducer((state, action) => {
     return Math.random(state);
@@ -142,6 +146,7 @@ const HookUseReducer = () => {
         />
         <input type="submit" value="Enviar" />
       </form>
+      <Footer url={urlGitHub} />
     </div>
   );
 };

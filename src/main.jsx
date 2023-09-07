@@ -9,12 +9,15 @@ import HookUseState from "./components/HookUseState.jsx";
 import HookUseReducer from "./components/HookUseReducer.jsx";
 import HookUseEffect from "./components/HookUseEffect.jsx";
 import HookUseContext from "./components/HookUseContext.jsx";
+import HookUseContextAux from "./components/HookUseContextAux.jsx";
+import HookUseRef from "./components/HookUseRef.jsx";
 
 import {
   createBrowserRouter,
   RouterProvider,
   Navigate,
 } from "react-router-dom";
+import { SomeContextProvider } from "./context/SomeContext.jsx";
 
 const router = createBrowserRouter([
   {
@@ -42,8 +45,16 @@ const router = createBrowserRouter([
         element: <HookUseEffect />,
       },
       {
-        path: "/usecontext",
         element: <HookUseContext />,
+        path: "/usecontext",
+      },
+      {
+        path: "/usecontextaux",
+        element: <HookUseContextAux />,
+      },
+      {
+        path: "/useref",
+        element: <HookUseRef />,
       },
     ],
   },
@@ -51,6 +62,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <SomeContextProvider>
+      <RouterProvider router={router} />
+    </SomeContextProvider>
   </React.StrictMode>
 );

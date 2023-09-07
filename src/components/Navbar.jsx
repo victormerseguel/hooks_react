@@ -8,6 +8,14 @@ const Navbar = () => {
       <div className="navbar">
         <span>
           <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            Home
+          </NavLink>
+        </span>
+        <span>
+          <NavLink
             to="/usestate"
             className={({ isActive }) => (isActive ? "active" : "")}
           >
@@ -36,6 +44,14 @@ const Navbar = () => {
             className={({ isActive }) => (isActive ? "active" : "")}
           >
             useContext
+          </NavLink>
+        </span>
+        <span>
+          <NavLink
+            to="/useref"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            useRef
           </NavLink>
         </span>
       </div>

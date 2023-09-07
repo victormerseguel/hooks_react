@@ -1,6 +1,10 @@
 import { useState } from "react";
+import Footer from "./Footer";
 
 const HookUseState = () => {
+  const urlGitHub =
+    "https://github.com/victormerseguel/hooks_react/blob/main/src/components/HookUseState.jsx";
+
   const [state, setState] = useState("Victor");
 
   const handleSubmit = (e) => {
@@ -86,6 +90,7 @@ const HookUseState = () => {
         Este número é modificado apenas quando o botão "Enviar" é acionado:{" "}
         {numberInput}
       </p>
+      <Footer url={urlGitHub} />
     </div>
   );
 };
