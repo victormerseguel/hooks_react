@@ -184,7 +184,7 @@ const HookUseEffect = () => {
       </span>
       <span className="divider"></span>
       <p>Contador automátio com Cleanup: {cleanupCounter}</p>
-      <Footer url={urlGitHub} />
+      <Footer name="HookUseEffect" />
     </div>
   );
 };

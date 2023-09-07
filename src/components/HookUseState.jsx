@@ -90,7 +90,7 @@ const HookUseState = () => {
         Este número é modificado apenas quando o botão "Enviar" é acionado:{" "}
         {numberInput}
       </p>
-      <Footer url={urlGitHub} />
+      <Footer name="HookUseState" />
     </div>
   );
 };

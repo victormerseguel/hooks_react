@@ -162,7 +162,7 @@ const HookUseContext = () => {
         Uma aplicação pode ter mais de um contexto e eles podem, inclusive,
         serem aninhados entre si.
       </p>
-      <Footer url={urlGitHub} />
+      <Footer name="HookUseContext" />
     </div>
   );
 };

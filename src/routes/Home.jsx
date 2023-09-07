@@ -1,5 +1,6 @@
 import React from "react";
 import HookUseState from "../components/HookUseState";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
@@ -31,6 +32,7 @@ const Home = () => {
         funcionamento para que sirva como uma fonte de consulta quando for
         necessário.
       </p>
+      <Footer />
     </div>
   );
 };

@@ -72,7 +72,6 @@ const HookUseReducer = () => {
       <span className="divider"></span>
       <p>Número: {number}</p>
       <button onClick={dispatchNumber}>Alterar Número</button>
-
       <h2>useReducer com funções complexas - switch</h2>
       <p>
         O useReducer permite a chamada de funções complexas por meio do elemento
@@ -116,7 +115,6 @@ const HookUseReducer = () => {
           {")}"}
         </code>
       </span>
-
       <span className="divider"></span>
       <p>
         Digite algo e clique em enviar para adicionar uma tarefa ou clique duas
@@ -135,7 +133,6 @@ const HookUseReducer = () => {
           </li>
         ))}
       </ul>
-
       <form onSubmit={(e) => dispatchTasks({ type: "ADD", e })}>
         <input
           type="text"
@@ -146,7 +143,7 @@ const HookUseReducer = () => {
         />
         <input type="submit" value="Enviar" />
       </form>
-      <Footer url={urlGitHub} />
+      <Footer name="HookUseReducer" />
     </div>
   );
 };
