@@ -127,3 +127,8 @@ code {
 .note {
   color: rgb(18, 147, 194);
 }
+
+button {
+  margin: 5px;
+  border: 1px solid #ccc !important;
+}
