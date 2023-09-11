@@ -33,14 +33,25 @@ const HookUseEffect = () => {
 
   // 4 - cleanup
   const [cleanupCounter, setCleanupCouter] = useState(0);
+  const [counterAuto, setCounterAuto] = useState(false);
 
   useEffect(() => {
-    const timerCount = setTimeout(() => {
-      setCleanupCouter(cleanupCounter + 1);
-      console.log("Contador automático com cleanup");
-    }, 1000);
-    return () => clearTimeout(timerCount);
-  }, [cleanupCounter]);
+    if (counterAuto) {
+      const timerCount = setTimeout(() => {
+        setCleanupCouter(cleanupCounter + 1);
+        console.log("Contador automático com cleanup");
+      }, 1000);
+      return () => clearTimeout(timerCount);
+    }
+  }, [cleanupCounter, counterAuto]);
+
+  useEffect(() => {
+    if (counterAuto) {
+      const timerCount = setTimeout(() => {
+        console.log("Contador automático sem cleanup");
+      }, 1000);
+    }
+  }, [cleanupCounter, counterAuto]);
 
   return (
     <div>
@@ -49,12 +60,13 @@ const HookUseEffect = () => {
         A função deste hook é evitar que os elementos React sejam renderizados
         repetidas vezes sem controle na interface do usuário. Isso pode
         acontecer se no código houverem situações que invoquem uma nova
-        renderização do componente sem controle de quando essas invocações
-        precisam acontecer. Para evitar isso, o useEffect cria um escopo que só
-        será renderizado quando algum estato for alterado. É possível determinar
-        quais estados afetam diretamente um determinado escopo, ignorando todas
-        as outras alterações. À essas determinações, damos o nome de
-        dependências.
+        renderização do componente, como mudanças de estado. Isso faz com que
+        todos os elementos do componente sejam re-renderizados, mesmo os que não
+        alteraram seu estado. Para evitar isso, o useEffect cria um escopo que
+        só será renderizado quando algum estado específico for alterado. É
+        possível determinar quais estados afetam diretamente um determinado
+        escopo, ignorando todas as outras alterações. À essas determinações,
+        damos o nome de dependências.
       </p>
       <p>A sintaxe de useEffect é:</p>
       <code>useEffect = {"(() => {escopo do hook}, [dependencias])"}</code>
@@ -62,11 +74,11 @@ const HookUseEffect = () => {
       <p>
         Quando execudado sem argumentos de dependências, o useEffect é afetado a
         cada nova renderização de um elemento no componente, mesmo que fora de
-        seu escopo. No exemplo a seguir, há uma chamada de console log dentro do
-        escopo de useEffect, sendo renderizada assim que a página é carregada.
-        Há um número que está fora do escopo do hook em questão, mas quando
-        alterado, provoca uma nova renderização do useEffect como pode ser vista
-        no painel de Console, no inspector do navegador.
+        seu escopo; é como se não existisse. No exemplo a seguir, há uma chamada
+        de console log dentro do escopo de useEffect sendo renderizada assim que
+        a página é carregada. Há um número que está fora do escopo do hook em
+        questão, mas quando alterado, provoca uma nova renderização do useEffect
+        como pode ser vista no painel de Console, no inspector do navegador.
       </p>
       <p>Neste caso, o uso de useEffect ficou da seguinte maneira:</p>
       <code> useEffect{'(() => {console.log("Fui renderizado")})'};</code>
@@ -85,22 +97,27 @@ const HookUseEffect = () => {
         apenas no carregamento da página, por exemplo.
       </p>
       <p>
-        No exemplo a seguir á uma mudança de estado que adiciona 1 número a cada
-        vez que há uma nova renderização em useEffect. Podemos ver que por mais
-        que mexamos em outros estados, como no contador acima, este não se
-        altera.
+        No exemplo a seguir há uma mudança de estado que adiciona 1 número a
+        cada vez que há uma nova renderização em useEffect, mas este foi
+        declarado com array de dependências vazio. Por isso, podemos ver que por
+        mais que mexamos em outros estados dentro do componente, como no
+        contador do exemplo anterior, este não se altera.
       </p>
-      <p>
-        Para isso, foi declarado um array vazio depois do escopo, demosntrado a
-        seguir
-      </p>
+      <p>Veja como foi declarado o array vazio depois do escopo, a seguir:</p>
       <code>
         useEffect{"(() => {setOneTime(oneTime + 1);}, "}
         <span className="emphasis">{"[]"}</span>
         {")"};
       </code>
       <span className="divider"></span>
-      <p>Este número foi renderizado {oneTime} única vez.</p>
+      <p>
+        {oneTime}
+        <span className="emphasis">{oneTime}</span>
+        Este número foi renderizado <span className="emphasis">
+          {oneTime}
+        </span>{" "}
+        única vez.
+      </p>
       <h2>useEffect com array de dependências</h2>
       <p>
         Neste exemplo, será declarado um estado que servirá de critério para que
@@ -148,7 +165,7 @@ const HookUseEffect = () => {
       <p>
         Uma outra possibilidade é utilizar um outro hook chamado useRef, que não
         renderiza a página a cada vez que é alterado. É possivel entender melhor
-        seu funcioanmento <Link to="/useref">clicando aqui</Link>
+        seu funcionamento <Link to="/useref">clicando aqui</Link>
       </p>
       <h2>Cleanup</h2>
       <p>
@@ -184,6 +201,9 @@ const HookUseEffect = () => {
       </span>
       <span className="divider"></span>
       <p>Contador automátio com Cleanup: {cleanupCounter}</p>
+      <button onClick={() => setCounterAuto(!counterAuto)}>
+        {counterAuto ? "Parar" : "Iniciar"}
+      </button>
       <Footer name="HookUseEffect" />
     </div>
   );

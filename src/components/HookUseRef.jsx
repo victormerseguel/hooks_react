@@ -81,7 +81,7 @@ const HookUseRef = () => {
       <h2>Manipulando a DOM</h2>
       <p>
         Outra função muito interessante do useRef é que ele consegue fazer
-        alterações na DOM, como o JavaScript puro.
+        manipulação no DOM ou aplicar eventos, como o JavaScript puro.
       </p>
       <p>
         Todo elemento contido num componente de React tem o atributo “ref”, o

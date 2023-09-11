@@ -11,6 +11,12 @@ import HookUseEffect from "./components/HookUseEffect.jsx";
 import HookUseContext from "./components/HookUseContext.jsx";
 import HookUseContextAux from "./components/HookUseContextAux.jsx";
 import HookUseRef from "./components/HookUseRef.jsx";
+import HookUseCallback from "./components/HookUseCallback.jsx";
+import HookUseMemo from "./components/HookUseMemo.jsx";
+import HookUseLayoutEffect from "./components/HookUseLayoutEffect.jsx";
+import HookUseImperativeHandle from "./components/HookUseImperativeHandle.jsx";
+
+import Teste from "./components/teste.jsx";
 
 import {
   createBrowserRouter,
@@ -55,6 +61,26 @@ const router = createBrowserRouter([
       {
         path: "/useref",
         element: <HookUseRef />,
+      },
+      {
+        path: "/usecallback",
+        element: <HookUseCallback />,
+      },
+      {
+        path: "/usememo",
+        element: <HookUseMemo />,
+      },
+      {
+        path: "/uselayouteffect",
+        element: <HookUseLayoutEffect />,
+      },
+      {
+        path: "/useimperativehandle",
+        element: <HookUseImperativeHandle />,
+      },
+      {
+        path: "/teste",
+        element: <Teste />,
       },
     ],
   },

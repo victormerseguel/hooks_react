@@ -2,27 +2,30 @@
   width: 100%;
 }
 
-.navbar {
+.navbar-settings {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
   margin: 0 auto;
   justify-content: center;
   gap: 20px;
 }
 
-.navbar span {
+.navbar-settings {
   /* flex: 1; */
+  display: inline-block;
   padding: 0.8rem 0;
+  margin: 0 10px;
 }
 
-.navbar a {
+.navbar-settings a {
   padding: 10px 30px;
   border-radius: 5px;
   background-color: #f8f8f8;
   color: #222;
 }
 
-.navbar a:hover {
+.navbar-settings a:hover {
   color: #222;
   background-color: #e4e4e4;
 }
