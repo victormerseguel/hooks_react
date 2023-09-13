@@ -132,3 +132,13 @@ button {
   margin: 5px;
   border: 1px solid #ccc !important;
 }
+
+.block {
+  display: block;
+  text-align: center;
+  margin: 20px auto 0;
+}
+
+.inline {
+  display: inline-block;
+}

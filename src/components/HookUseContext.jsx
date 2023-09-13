@@ -13,15 +13,6 @@ const HookUseContext = () => {
     <div>
       <h1>useContext</h1>
       <p>
-        O conteúdo a seguir está sendo disponibilizado por meio de Context API
-        es está vindo de outro componente.
-      </p>
-      <p className="emphasis">{phrase}</p>
-      <Link to="/usecontextaux">
-        <button>Alterar valor por useContext</button>
-      </Link>
-      <span className="divider2"></span>
-      <p>
         O hook useContext tem a função de criar um contexto, ou seja, um escopo,
         onde valores determinados podem ser acessados por todos os componentes
         que fazem parte deste contexto.
@@ -34,8 +25,18 @@ const HookUseContext = () => {
         <li>- Configurar componentes filhos;</li>
         <li>- Utilizar os valores disponibilizados.</li>
       </ul>
+      <h2>Exemplo</h2>
+      <p>
+        O conteúdo a seguir está sendo disponibilizado por meio de Context API e
+        está vindo de outro componente.
+      </p>
+      <p className="emphasis">{phrase}</p>
+      <Link to="/usecontextaux">
+        <button>Alterar valor por useContext</button>
+      </Link>
       <span className="divider"></span>
-      <h2>Criando o contexto</h2>
+
+      <h2>1 - Criando o contexto</h2>
       <p>
         Para criar o contexto é necessário importar de forma desestruturada{" "}
         "createContext" vindo de "react".
@@ -46,7 +47,8 @@ const HookUseContext = () => {
         termina em "Context", e iguala à "createContext", assim:
       </p>
       <code>{"export const SomeContext = createContext()"}</code>
-      <h2>Criando o provedor</h2>
+
+      <h2>2 - Criando o provedor</h2>
       <p>
         Criar o provedor é como fazer a ligação entre o contexto criado e os
         componentes que se beneficiarão dele, bem como disponibilizar os valores
@@ -81,7 +83,8 @@ const HookUseContext = () => {
         <code className="indent2">{"</SomeContext.Provider>"}</code>
         <code className="indent1">{")"}</code>
       </span>
-      <h2>Disponibilizando Valores</h2>
+
+      <h2>3 - Disponibilizando Valores</h2>
       <p>
         A disponibilização dos valores vem da lógica que está dentro da função
         (neste caso SomeContextProvider).
@@ -111,7 +114,8 @@ const HookUseContext = () => {
         <code className="indent1">{")"}</code>
         <code>{"}"}</code>
       </span>
-      <h2>Configurando componentes filhos</h2>
+
+      <h2>4 - Configurando componentes filhos</h2>
       <p>
         Uma vez criado o contexto, criado o provedor e disponibilizado os
         valores, o próximo passo é configurar como filho, o componente que se
@@ -139,7 +143,8 @@ const HookUseContext = () => {
         <code>{");"}</code>
       </span>
       <p>Este processo é feito apenas uma vez.</p>
-      <h2>Utilizando os valores</h2>
+
+      <h2>5 - Utilizando os valores</h2>
       <p>
         Para utilizar os valores, agora basta ir a um dos elementos envolvidos
         pelo provedor, importar "useContext" e o contexto criado, no nosso caso
@@ -153,6 +158,7 @@ const HookUseContext = () => {
       </p>
       <code>{"const {state, setState, name} = useContext(SomeContext)"}</code>
       <p>Pronto! Os dados estão disponíveis para serem usados.</p>
+
       <h2 className="note">! Nota</h2>
       <p>
         Por convenção, geralmente os contextos criados ficam em uma pasta
@@ -162,6 +168,7 @@ const HookUseContext = () => {
         Uma aplicação pode ter mais de um contexto e eles podem, inclusive,
         serem aninhados entre si.
       </p>
+
       <Footer name="HookUseContext" />
     </div>
   );
