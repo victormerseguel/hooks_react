@@ -162,7 +162,7 @@ const HookUseContext = () => {
       <h2 className="note">! Nota</h2>
       <p>
         Por convenção, geralmente os contextos criados ficam em uma pasta
-        chamada "context" em src
+        chamada "context" em src.
       </p>
       <p>
         Uma aplicação pode ter mais de um contexto e eles podem, inclusive,
